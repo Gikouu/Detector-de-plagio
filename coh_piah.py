@@ -95,33 +95,23 @@ def compara_assinatura(as_a, as_b):
 def calcula_assinatura(texto):
 #Essa função recebe o texto a ser testado e devolve a "assinatura" do mesmo
 
-    sentencas = []
     frases = []
     palavras = []
     sentencas = separa_sentencas(texto)
-    i = 0
-    while i < len(sentencas):
-        frases += separa_frases(sentencas[i])
-        i += 1
-    i = 0
-    while i < len(frases):
-      palavras += separa_palavras(frases[i])
-      i += 1
-    i = 0
     soma_tam_palavras = 0
-    while i < len(palavras):
-      soma_tam_palavras += len(palavras[i])
-      i += 1
     caracteres = 0
-    i = 0
-    while i < len(separa_sentencas(texto)):
-      caracteres += len(separa_sentencas(texto)[i])
-      i += 1
-    i = 0
     carac_frase = 0
-    while i < len(frases):
+   
+    for i in range(len(sentencas)):
+        frases += separa_frases(sentencas[i])
+        caracteres += len(separa_sentencas(texto)[i])
+        
+    for i in range(len(frases)):
+      palavras += separa_palavras(frases[i])
       carac_frase += len(frases[i])
-      i += 1
+
+    for i in range(len(palavras)):
+      soma_tam_palavras += len(palavras[i])
 
     #Esses são as fórmulas para calcular os traços do texto
     tam_medio_pa = soma_tam_palavras / len(palavras)
@@ -139,13 +129,14 @@ def avalia_textos(textos, ass_cp):
     inf = []
     
     for texto in textos:
+
         ass_texto = calcula_assinatura(texto)
         inf.append(compara_assinatura(ass_texto, ass_cp))
 
     menor = inf[0]
-    c = 1
+    texto_comprometido = 1
 
     for i in range(1, len(inf)):
         if (menor > inf[i]):
             c = i
-    return c
+    return texto_comprometido
