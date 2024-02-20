@@ -1,4 +1,4 @@
-# Detector-de-Plagio
+# Detector de Plagio
 Esse código é a tarefa final de um curso sobre introdução a Python, nele temos um "doença" que está se infestando onde textos acabam sendo "plagiados" mesmo sem a intenção da pessoa, portanto é nossa tarefa implementar funções no código, sendo elas "compara_assinatura, calcula_assinatura e avalia_textos", para que criemos um detector dessa doença, ou um detector de plágio. Enfim, o código consiste em várias funções que dividem o texto em frases, palavras, etc.
 
 Com essas informações do texto nós calculamos seus traços linguísticos, que seriam sua assinatura, o que mostraria que VOCÊ escreveu aquele texto e não outra pessoa, e depois comparamos seu texto com a assinatura de outro texto e retornariamos a similaridade entre um texto e outro, e através de um loop podemos fazer isso com vários textos e descobrir qual tem a maior possibilidade de estar infectado com a doença!!
